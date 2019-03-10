@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import {
+  Redirect,
   Route,
   Switch
 } from 'react-router-dom'
@@ -16,8 +17,9 @@ class App extends Component {
     return (
       <div className="App">
         <Navigation/>
-        <Dashboard/>
         <Switch>
+          <Route exact path='/' component={Dashboard} />
+          <Route path='/dashboard' render={() => (<Redirect exact to="/"/>)}/>
           <Route path='/create' component={Create} />
           <Route path='/signin' component={SignIn} />
           <Route path='/signup' component={SignUp} />
