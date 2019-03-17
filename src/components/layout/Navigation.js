@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
 import AppBar from '@material-ui/core/AppBar';
-import Typography from '@material-ui/core/Typography';
+// import Typography from '@material-ui/core/Typography';
 
 const Navigation = () => {
   return (
