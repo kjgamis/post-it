@@ -1,13 +1,14 @@
 import React from 'react'
 
 import {Link} from 'react-router-dom'
+import Button from '@material-ui/core/Button';
 
 const SignedInOutLinks = () => {
   return (
-    <ul className='right'>
-      <li><Link to='/signup'>Signup</Link></li>
-      <li><Link to='/signin'>Login</Link></li>
-    </ul>
+    <span>
+      <Button><Link to='/signup'>Signup</Link></Button>
+      <Button><Link to='/signin'>Login</Link></Button>
+    </span>
   )
 }
 

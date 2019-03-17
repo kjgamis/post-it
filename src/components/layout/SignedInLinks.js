@@ -1,14 +1,16 @@
 import React from 'react'
 
 import {Link} from 'react-router-dom'
+import Button from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Fab';
 
 const SignedInLinks = () => {
   return (
-    <ul className='right'>
-      <li><Link to='/create'>New Post</Link></li>
-      <li><Link to='/'>Logout </Link></li>
-      <li><Link to='/' className='btn btn-floating pink lighten-1'>KJG</Link></li>
-    </ul>
+    <span >
+      <Button><Link to='/create'>New Post</Link></Button>
+      <Button><Link to='/'>Logout </Link></Button>
+      <Fab size="small" color="secondary"><Link to='/'>KJG</Link></Fab>
+    </span>
   )
 }
 
