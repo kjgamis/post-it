@@ -1,16 +1,18 @@
 import React, { Component } from 'react'
+import Notifications from './Notifications'
+import PostList from '../posts/PostList'
 
 class Dashboard extends Component {
   render() {
     return(
-      <div className="dashboard container">
-        <p>This is the Dashboard</p>
+      <div className="dashboard container section">
         <div className="row">
           <div className="col s12 m6">
-            This is for Post List
+            <PostList />
+            <PostList />
           </div>
           <div className="col s12 m5 offset-m1">
-            This is for Notifications
+            <Notifications/>
           </div>
         </div>
       </div>

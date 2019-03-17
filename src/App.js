@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import {
+  BrowserRouter as Router,
   Redirect,
   Route,
   Switch
@@ -11,20 +12,25 @@ import Dashboard from './components/dashboard/Dashboard'
 import Create from './components/posts/CreatePost'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
+import PostDetails from './components/posts/PostDetails'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Navigation/>
-        <Switch>
-          <Route exact path='/' component={Dashboard} />
-          <Route path='/dashboard' render={() => (<Redirect exact to="/"/>)}/>
-          <Route path='/create' component={Create} />
-          <Route path='/signin' component={SignIn} />
-          <Route path='/signup' component={SignUp} />
-        </Switch>
-      </div>
+      <Router>
+        <div className="App">
+          <Navigation/>
+          <Switch>
+            <Route exact path='/' component={Dashboard} />
+            <Route path='/dashboard' render={() => (<Redirect exact to="/"/>)}/>
+            <Route path='/create' component={Create} />
+            <Route path='/signin' component={SignIn} />
+            <Route path='/signup' component={SignUp} />
+
+            <Route path='/details' component={PostDetails} />
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
