@@ -2,12 +2,12 @@ import React from 'react'
 import PostSummary from './PostSummary'
 
 
-const PostList = () => (
-  <div className='post-list'>
-    <PostSummary />
-    <PostSummary />
-    <PostSummary />
-  </div>
-)
+const PostList = (props) => {
+  return (
+    <div className='post-list'>
+      <PostSummary title={props.title} user={props.user}/>
+    </div>
+  )
+}
 
 export default PostList

@@ -8,8 +8,8 @@ class Dashboard extends Component {
       <div className="dashboard container section">
         <div className="row">
           <div className="col s12 m6">
-            <PostList />
-            <PostList />
+            <PostList title="Post Text 1" user="KJG"/>
+            <PostList title="Post Text 2" user="Kage"/>
           </div>
           <div className="col s12 m5 offset-m1">
             <Notifications/>
