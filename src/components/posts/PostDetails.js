@@ -1,4 +1,5 @@
 import React from 'react'
+import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import CardActions from '@material-ui/core/CardActions';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -6,6 +7,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 const PostDetails = (props) => {
   return (
     <div className="post-details container section">
+      <Paper className="paper">
         <Typography gutterBottom variant="h4" component="h2">
           Post Text - {props.match.params.id}
         </Typography>
@@ -20,6 +22,7 @@ const PostDetails = (props) => {
             </Typography>
           </CardActionArea>
         </CardActions>
+      </Paper>
     </div>
     )
   }

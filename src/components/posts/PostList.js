@@ -1,11 +1,14 @@
 import React from 'react'
 import PostSummary from './PostSummary'
+import Paper from '@material-ui/core/Paper';
 
 
 const PostList = (props) => {
   return (
     <div className='post-list'>
-      <PostSummary title={props.title} user={props.user}/>
+      <Paper className="paper">
+        <PostSummary title={props.title} user={props.user}/>
+      </Paper>
     </div>
   )
 }
