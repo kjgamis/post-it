@@ -1,7 +1,5 @@
 import React from 'react'
 
-import {Link} from 'react-router-dom'
-
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography';
 
