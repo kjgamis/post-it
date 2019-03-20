@@ -3,12 +3,19 @@ import PostSummary from './PostSummary'
 import Paper from '@material-ui/core/Paper';
 
 
-const PostList = (props) => {
+const PostList = ({posts}) => {
+  // console.log(posts)
   return (
     <div className='post-list'>
-      <Paper className="paper">
-        <PostSummary title={props.title} user={props.user}/>
-      </Paper>
+
+      {posts &&  posts.map(post => {
+        return (
+          <Paper className="paper" key={post.id}>
+            <PostSummary post={post} key={post.id}/>
+          </Paper>
+        )
+      })} 
+
     </div>
   )
 }
