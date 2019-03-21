@@ -8,6 +8,7 @@ class Dashboard extends Component {
   render() {
     // console.log(this.props)
     const { posts } = this.props
+    const { notifications } = this.props
 
     return(
       <div className="dashboard container section">
@@ -17,7 +18,7 @@ class Dashboard extends Component {
             <PostList title="Post Text 2" user="Kage"/>
           </div>
           <div className="col s12 m5 offset-m1">
-            <Notifications/>
+            <Notifications notifications={notifications}/>
           </div>
         </div>
       </div>
@@ -27,7 +28,8 @@ class Dashboard extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    posts: state.post.posts
+    posts: state.post.posts,
+    notifications: state.notification.notifications
   }
 }
 

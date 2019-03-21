@@ -4,7 +4,7 @@ import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography';
 
 const PostSummary = ({post}) => {
-  console.log(post)
+  // console.log(post)
   return (
     <div className="post-summary">
       <CardContent>
