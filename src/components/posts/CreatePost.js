@@ -24,7 +24,7 @@ class CreatePost extends Component {
     console.log(this.props)
     event.preventDefault()
     // console.log(this.state)
-    this.props.createPost(this.state )
+    this.props.createPost(this.state)
   }
 
   render() {
