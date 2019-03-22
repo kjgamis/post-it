@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { createPost } from '../../store/actions/postActions'
 
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
@@ -19,8 +21,10 @@ class CreatePost extends Component {
   }
 
   handleSubmit = event => {
+    console.log(this.props)
     event.preventDefault()
-    console.log(this.state)
+    // console.log(this.state)
+    this.props.createPost(this.state )
   }
 
   render() {
@@ -64,4 +68,10 @@ class CreatePost extends Component {
   }
 }
 
-export default CreatePost
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createPost: (post) => dispatch(createPost(post))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(CreatePost)
