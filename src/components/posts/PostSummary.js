@@ -14,9 +14,9 @@ const PostSummary = ({post}) => {
         <Typography variant="subtitle1" gutterBottom>
           {post.user}
         </Typography>
-          <Typography variant="subtitle1" gutterBottom color="textSecondary">
-            March16/19
-          </Typography>
+        <Typography variant="subtitle1" gutterBottom color="textSecondary">
+          March16/19
+        </Typography>
       </CardContent>
     </div>
   )
