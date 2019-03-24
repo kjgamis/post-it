@@ -8,7 +8,11 @@ const initState = {
 
 const postReducer = (state = initState, action) => {
     switch (action.type) {
-        case 'CREATE_POST': console.log(`created post`, action.post)
+        case 'CREATE_POST': 
+            console.log(`created post`, action.post)
+            break
+        default:
+            console.log('post reducer');
     }
     return state
 }

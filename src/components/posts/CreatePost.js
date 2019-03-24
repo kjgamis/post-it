@@ -74,4 +74,5 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
+// the first parameter of connect is 'mapStateToProps()' but because it's not needed here, 'null' is used to take its place
 export default connect(null, mapDispatchToProps)(CreatePost)
