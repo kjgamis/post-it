@@ -18,7 +18,6 @@ const postReducer = (state = initState, action) => {
             console.log('post reducer')
             return state
     }
-    return state
 }
 
 export default postReducer
