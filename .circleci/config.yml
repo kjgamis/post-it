@@ -19,6 +19,6 @@ jobs:
       - run:
           name: 'Build Project'
           command: 'npm build'
-      - run:
-          name: 'Deploy to Firebase Hosting'
-          command: './node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN'
+      - run: 
+          name: Deploy Master to Firebase 
+          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN
