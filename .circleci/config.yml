@@ -10,9 +10,17 @@ jobs:
           keys:
             - 'v1-dependencies-{{ checksum "package.json" }}'
             - v1-dependencies-
-      - run: 'yarn install'
+      - run: 
+          name: Install dependencies
+          command: npm install
       - save_cache:
           paths:
             - node_modules
           key: 'v1-dependencies-{{ checksum "package.json" }}'
-      - run: 'yarn test'
+      - run: 'npm run test'
+      - run:
+          name: 'Build Project'
+          command: 'npm run build'
+      - run: 
+          name: Deploy Master to Firebase 
+          command: './node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN'

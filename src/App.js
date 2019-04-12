@@ -17,20 +17,22 @@ import PostDetails from './components/posts/PostDetails'
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div className="App">
-          <Navigation/>
-          <Switch>
-            <Route exact path='/' component={Dashboard} />
-            <Route path='/dashboard' render={() => (<Redirect exact to="/"/>)}/>
-            <Route path='/create' component={Create} />
-            <Route path='/signin' component={SignIn} />
-            <Route path='/signup' component={SignUp} />
+      <div>
+        <Router>
+          <div className="App">
+            <Navigation/>
+            <Switch>
+              <Route exact path='/' component={Dashboard} />
+              <Route path='/dashboard' render={() => (<Redirect exact to="/"/>)}/>
+              <Route path='/create' component={Create} />
+              <Route path='/signin' component={SignIn} />
+              <Route path='/signup' component={SignUp} />
 
-            <Route path='/details/:id' component={PostDetails} />
-          </Switch>
-        </div>
-      </Router>
+              <Route path='/details/:id' component={PostDetails} />
+            </Switch>
+          </div>
+        </Router>
+      </div>
     );
   }
 }
