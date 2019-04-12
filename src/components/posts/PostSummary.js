@@ -11,6 +11,9 @@ const PostSummary = ({post}) => {
         <Typography gutterBottom variant="h4" component="h2">
           {post.title}
         </Typography>
+        <Typography gutterBottom variant="h4" component="h2">
+          {post.content}
+        </Typography>
         <Typography variant="subtitle1" gutterBottom>
           {post.user}
         </Typography>

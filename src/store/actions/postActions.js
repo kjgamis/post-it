@@ -4,8 +4,7 @@ export const createPost = (post) => {
         // make asyc call to database 
         const firestore = getFirestore()
         firestore.collection('posts').add({
-            ...post, 
-            title: 'Connected',
+            ...post,
             user: 'Kage',
             createdAt: new Date()
         }).then(() => {
