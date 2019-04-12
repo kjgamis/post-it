@@ -15,10 +15,10 @@ jobs:
           paths:
             - node_modules
           key: 'v1-dependencies-{{ checksum "package.json" }}'
-      - run: 'npm test'
+      - run: 'npm run test'
       - run:
           name: 'Build Project'
-          command: 'npm build'
+          command: 'npm run build'
       - run: 
           name: Deploy Master to Firebase 
-          command: firebase deploy --token=$FIREBASE_TOKEN
+          command: './node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN'
