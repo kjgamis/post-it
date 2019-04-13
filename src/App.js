@@ -32,8 +32,8 @@ class App extends Component {
             </Switch>
           </div>
         </Router>
-      </div>
-    );
+      </div> 
+    ); 
   }
 }
 

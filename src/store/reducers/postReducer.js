@@ -1,8 +1,8 @@
 const initState = {
     posts: [
-        {id: 1, title: 'First Post', user: 'KJG'},
-        {id: 2, title: 'Refactor', user: 'Kage'},
-        {id: 3, title: 'Eat Ice Cream', user: 'Stranger'}
+        {id: 1, title: 'First Post', content: '', user: 'KJG'},
+        {id: 2, title: 'Refactor', content: '', user: 'Kage'},
+        {id: 3, title: 'Eat Ice Cream', content: '', user: 'Stranger'}
     ]
 }
 
@@ -15,7 +15,7 @@ const postReducer = (state = initState, action) => {
             console.log(`Create Post Error`, action.err)
             return state
         default:
-            console.log('post reducer')
+            // console.log('post reducer')
             return state
     }
 }
