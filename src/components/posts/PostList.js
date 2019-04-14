@@ -2,6 +2,8 @@ import React from 'react'
 import PostSummary from './PostSummary'
 import Paper from '@material-ui/core/Paper';
 
+import { Link } from 'react-router-dom'
+
 
 const PostList = ({posts}) => {
   // console.log(posts)
@@ -10,9 +12,11 @@ const PostList = ({posts}) => {
 
       {posts &&  posts.map(post => {
         return (
-          <Paper className="paper" key={post.id}>
-            <PostSummary post={post} key={post.id}/>
-          </Paper>
+          <Link to={`/details/${post.id}`}>
+            <Paper className="paper" key={post.id}>
+              <PostSummary post={post} key={post.id}/>
+            </Paper>
+          </Link>
         )
       })} 
 
