@@ -36,9 +36,9 @@ const PostDetails = (props) => {
   } else {
     return (
       <div className="post-details container section center">
-        {/* <Typography component="p" className="content"> */}
-          <p>Loading Post...</p>
-        {/* </Typography> */}
+        <Typography variant="h4" component="p" className="content">
+          Loading Post...
+        </Typography>
       </div>
     )
   }
