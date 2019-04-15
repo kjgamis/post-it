@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { signIn } from '../../store/actions/authActions'
 
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
@@ -11,7 +13,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 
 class SignIn extends Component {
   state = {
-    username: '',
+    email: '',
     password: ''
   }
 
@@ -23,7 +25,8 @@ class SignIn extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    console.log(this.state)
+    // use the signIn() function from line69 with state.username & state.password as arguments
+    this.props.signIn(this.state)
   }
 
   render() {
@@ -62,4 +65,10 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signIn: (creds) => dispatch(signIn(creds))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(SignIn)
