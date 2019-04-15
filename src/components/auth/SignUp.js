@@ -13,7 +13,7 @@ class SignUp extends Component {
   state = {
     firstname: '',
     lastname: '',
-    username: '',
+    email: '',
     password: ''
   }
 
@@ -45,8 +45,8 @@ class SignUp extends Component {
                 <Input id="lastname" name="lastname" autoComplete="lastname" autoFocus onChange={this.handleChange}/>
               </FormControl>
               <FormControl margin="normal" required fullWidth>
-                <InputLabel htmlFor="username">Username</InputLabel>
-                <Input id="username" name="username" autoComplete="username" autoFocus onChange={this.handleChange}/>
+                <InputLabel htmlFor="email">Email</InputLabel>
+                <Input id="email" name="email" autoComplete="email" autoFocus onChange={this.handleChange}/>
               </FormControl>
               <FormControl margin="normal" required fullWidth>
                 <InputLabel htmlFor="password">Password</InputLabel><br/>
