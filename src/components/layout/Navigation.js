@@ -1,9 +1,8 @@
 import React from 'react'
-
-import {Link} from 'react-router-dom'
-
 import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 import AppBar from '@material-ui/core/AppBar';
 // import Typography from '@material-ui/core/Typography';
 
@@ -21,4 +20,10 @@ const Navigation = () => {
   )
 }
 
-export default Navigation
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth
+  }
+}
+
+export default connect(mapStateToProps)(Navigation)

@@ -12,9 +12,9 @@ const PostList = ({posts}) => {
 
       {posts &&  posts.map(post => {
         return (
-          <Link to={`/details/${post.id}`}>
-            <Paper className="paper" key={post.id}>
-              <PostSummary post={post} key={post.id}/>
+          <Link to={`/details/${post.id}`} key={post.id}>
+            <Paper className="paper">
+              <PostSummary post={post}/>
             </Paper>
           </Link>
         )

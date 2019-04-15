@@ -8,15 +8,12 @@ import { compose } from 'redux'
 
 class Dashboard extends Component {
   render() {
-    // console.log(this.props)
     const { posts } = this.props
-
     return(
       <div className="dashboard container section">
         <div className="row">
           <div className="col s12 m6">
             <PostList posts={posts}/>
-            <PostList title="Post Text 2" user="Kage"/>
           </div>
           <div className="col s12 m5 offset-m1">
             <Notifications/>
@@ -28,8 +25,10 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
-    posts: state.firestore.ordered.posts
+    posts: state.firestore.ordered.posts,
+    auth: state.firebase.auth
   }
 }
 
