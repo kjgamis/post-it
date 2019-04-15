@@ -25,11 +25,12 @@ class SignIn extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    // use the signIn() function from line69 with state.username & state.password as arguments
+    // use the signIn() function from line77 with state.email & state.password as arguments
     this.props.signIn(this.state)
   }
 
   render() {
+    const { authError } = this.props
     return (
       <div className="signIn container section">
         <Paper className="paper">
@@ -37,9 +38,12 @@ class SignIn extends Component {
                 Sign In
             </Typography>
             <form onSubmit={this.handleSubmit}>
+              <div className="red-text center">
+                { authError ? <p>{authError}</p> : null}
+              </div>
               <FormControl margin="normal" required fullWidth>
-                <InputLabel htmlFor="username">Username</InputLabel>
-                <Input id="username" name="username" autoComplete="username" autoFocus onChange={this.handleChange}/>
+                <InputLabel htmlFor="email">Email</InputLabel>
+                <Input id="email" name="email" autoComplete="email" autoFocus onChange={this.handleChange}/>
               </FormControl>
               <FormControl margin="normal" required fullWidth>
                 <InputLabel htmlFor="password">Password</InputLabel><br/>
@@ -57,11 +61,17 @@ class SignIn extends Component {
               >
                 Sign in
               </Button>
-            
             </form>
         </Paper>
       </div>
     )
+  }
+}
+
+const mapStateToProps = (state) => {
+  console.log(state)
+  return {
+    authError: state.auth.authError
   }
 }
 
@@ -71,4 +81,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(SignIn)
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
