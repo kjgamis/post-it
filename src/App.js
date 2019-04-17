@@ -13,6 +13,7 @@ import Create from './components/posts/CreatePost'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
 import PostDetails from './components/posts/PostDetails'
+import Error404 from './components/layout/Error404'
 
 class App extends Component {
   render() {
@@ -27,8 +28,8 @@ class App extends Component {
               <Route path='/create' component={Create} />
               <Route path='/signin' component={SignIn} />
               <Route path='/signup' component={SignUp} />
-
               <Route path='/details/:id' component={PostDetails} />
+              <Route component={Error404}/>
             </Switch>
           </div>
         </Router>
