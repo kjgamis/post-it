@@ -17,10 +17,10 @@ export const signIn = (credentials) => {
     }
 }
 
-export const logout = () => {
+export const signOut = () => {
     return (dispatch, getState, { getFirebase}) => {
         const firebase = getFirebase()
-        firebase.logout()
+        firebase.auth().signOut()
             .then(() => { dispatch({ type: 'LOGOUT_SUCCESS' }) })
             .catch((err) => { dispatch({ type: 'LOGOUT_ERROR', err }) })
     }
