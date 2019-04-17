@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
+import { Redirect } from 'react-router-dom'
 
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -9,8 +10,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardActionArea from '@material-ui/core/CardActionArea';
 
 const PostDetails = (props) => {
-  const { post } = props
+  const { post, auth } = props
   const id = props.match.params.id
+  if (!auth.uid) return <Redirect to='/signin'/>
 
   if (post) {
     return (
@@ -49,7 +51,8 @@ const mapStateToProps = (state, ownProps) => {
   const posts = state.firestore.data.posts
   const post = posts ? posts[id] : null
   return {
-    post: post
+    post: post,
+    auth: state.firebase.auth
   }
 }
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createPost } from '../../store/actions/postActions'
+import { Redirect } from 'react-router-dom'
 
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
@@ -28,6 +29,10 @@ class CreatePost extends Component {
   }
 
   render() {
+    const { auth } = this.props
+    if (!auth.uid) return <Redirect to='/signin'/>
+
+    console.log(auth)
     return (
       <div className="createPost container section">
         <Paper className="paper">
@@ -68,6 +73,12 @@ class CreatePost extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     createPost: (post) => dispatch(createPost(post))
@@ -75,4 +86,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 // the first parameter of connect is 'mapStateToProps()' but because it's not needed here, 'null' is used to take its place
-export default connect(null, mapDispatchToProps)(CreatePost)
+export default connect(mapStateToProps, mapDispatchToProps)(CreatePost)
