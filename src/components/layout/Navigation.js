@@ -4,7 +4,6 @@ import SignedOutLinks from './SignedOutLinks'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import AppBar from '@material-ui/core/AppBar';
-// import Typography from '@material-ui/core/Typography';
 
 const Navigation = (props) => {
   const { auth } = props
