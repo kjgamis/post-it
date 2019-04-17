@@ -32,7 +32,7 @@ class SignUp extends Component {
 
   render() {
     const { auth } = this.props
-    if (auth.id) return <Redirect to='/dashboard'/>
+    if (auth.uid) return <Redirect to='/'/>
     
     return (
       <div className="signIn container section">
