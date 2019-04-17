@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
@@ -29,6 +31,9 @@ class SignUp extends Component {
   }
 
   render() {
+    const { auth } = this.props
+    if (auth.id) return <Redirect to='/dashboard'/>
+    
     return (
       <div className="signIn container section">
         <Paper className="paper">
@@ -72,4 +77,11 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp
+const mapStateToProps = (state) => {
+  console.log(state)
+  return {
+    auth: state.firebase.auth
+  }
+}
+
+export default connect(mapStateToProps)(SignUp)
