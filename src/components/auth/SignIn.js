@@ -71,17 +71,17 @@ class SignIn extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const stateToProps = (state) => {
   return {
     authError: state.auth.authError,
     auth: state.firebase.auth
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const dispatchToProps = (dispatch) => {
   return {
     signIn: (creds) => dispatch(signIn(creds))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
+export default connect(stateToProps, dispatchToProps)(SignIn)

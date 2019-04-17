@@ -81,17 +81,17 @@ class SignUp extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const stateToProps = (state) => {
   return {
     authError: state.auth.authError,
     auth: state.firebase.auth
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const dispatchToProps = (dispatch) => {
   return {
     signUp: (newUser) => dispatch(signUp(newUser))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
+export default connect(stateToProps, dispatchToProps)(SignUp)

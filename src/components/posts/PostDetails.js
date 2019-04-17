@@ -46,7 +46,7 @@ const PostDetails = (props) => {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const stateToProps = (state, ownProps) => {
   const id = ownProps.match.params.id
   const posts = state.firestore.data.posts
   const post = posts ? posts[id] : null
@@ -57,7 +57,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 export default compose(
-  connect(mapStateToProps),
+  connect(stateToProps),
   firestoreConnect([
     { collection: 'posts' }
   ])
