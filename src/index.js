@@ -27,7 +27,6 @@ const store = createStore(
 
 // Listen for auth ready (promise available on store thanks to attachAuthIsReady: true config option)
 store.firebaseAuthIsReady.then(() => {
-    console.log('Auth has loaded') // eslint-disable-line no-console
     ReactDOM.render((<Provider store={store}><App /></Provider>), document.getElementById('root'));
 })
 

@@ -32,8 +32,8 @@ class SignIn extends Component {
 
   render() {
     const { authError, auth } = this.props
-    if (auth.id) return <Redirect to='/dashboard'/>
-
+    if (auth.uid) return <Redirect to='/'/>
+    
     return (
       <div className="signIn container section">
         <Paper className="paper">
