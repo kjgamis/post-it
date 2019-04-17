@@ -73,17 +73,17 @@ class CreatePost extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const stateToProps = (state) => {
   return {
     auth: state.firebase.auth
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const dispatchToProps = (dispatch) => {
   return {
     createPost: (post) => dispatch(createPost(post))
   }
 }
 
-// the first parameter of connect is 'mapStateToProps()' but because it's not needed here, 'null' is used to take its place
-export default connect(mapStateToProps, mapDispatchToProps)(CreatePost)
+// the first parameter of connect is 'stateToProps()' but because it's not needed here, 'null' is used to take its place
+export default connect(stateToProps, dispatchToProps)(CreatePost)

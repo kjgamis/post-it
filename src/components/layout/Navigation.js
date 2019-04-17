@@ -20,10 +20,10 @@ const Navigation = (props) => {
   )
 }
 
-const mapStateToProps = (state) => {
+const stateToProps = (state) => {
   return {
     auth: state.firebase.auth
   }
 }
 
-export default connect(mapStateToProps)(Navigation)
+export default connect(stateToProps)(Navigation)
