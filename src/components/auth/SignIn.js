@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { signIn } from '../../store/actions/authActions'
+import { Redirect } from 'react-router-dom'
 
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
@@ -30,7 +31,9 @@ class SignIn extends Component {
   }
 
   render() {
-    const { authError } = this.props
+    const { authError, auth } = this.props
+    if (auth.id) return <Redirect to='/dashboard'/>
+
     return (
       <div className="signIn container section">
         <Paper className="paper">
@@ -69,8 +72,10 @@ class SignIn extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
-    authError: state.auth.authError
+    authError: state.auth.authError,
+    auth: state.firebase.auth
   }
 }
 
