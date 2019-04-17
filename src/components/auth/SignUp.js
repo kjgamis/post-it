@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { signUp } from '../../store/actions/authActions'
 import { Redirect } from 'react-router-dom'
 
 import Typography from '@material-ui/core/Typography';
@@ -27,11 +28,11 @@ class SignUp extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    console.log(this.state)
+    this.props.signUp(this.state)
   }
 
   render() {
-    const { auth } = this.props
+    const { authError, auth } = this.props
     if (auth.uid) return <Redirect to='/'/>
     
     return (
@@ -41,6 +42,9 @@ class SignUp extends Component {
                 Sign Up
             </Typography>
             <form onSubmit={this.handleSubmit}>
+              <div className="red-text center">
+                { authError ? <p>{authError}</p> : null}
+              </div>
               <FormControl margin="normal" required fullWidth>
                 <InputLabel htmlFor="firstname">First Name</InputLabel>
                 <Input id="firstname" name="firstname" autoComplete="firstname" autoFocus onChange={this.handleChange}/>
@@ -78,10 +82,16 @@ class SignUp extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
+    authError: state.auth.authError,
     auth: state.firebase.auth
   }
 }
 
-export default connect(mapStateToProps)(SignUp)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signUp: (newUser) => dispatch(signUp(newUser))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
