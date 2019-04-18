@@ -3,9 +3,10 @@ export const createPost = (post) => {
     return (dispatch, getState, { getFirebase, getFirestore }) => {
         // make asyc call to database 
         const firestore = getFirestore()
+        const profile = getState().firebase.profile
         firestore.collection('posts').add({
             ...post,
-            user: 'Kage',
+            user:  `${profile.firstname} ${profile.lastname}`,
             createdAt: new Date()
         }).then(() => {
             dispatch({
