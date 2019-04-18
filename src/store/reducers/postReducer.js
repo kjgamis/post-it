@@ -1,9 +1,9 @@
 const initState = {
-    // posts: [
+    posts: [
     //     {id: 1, title: 'First Post', content: '', user: 'KJG'},
     //     {id: 2, title: 'Refactor', content: '', user: 'Kage'},
     //     {id: 3, title: 'Eat Ice Cream', content: '', user: 'Stranger'}
-    // ]
+    ]
 }
 
 const postReducer = (state = initState, action) => {
