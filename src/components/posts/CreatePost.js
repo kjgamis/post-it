@@ -22,9 +22,7 @@ class CreatePost extends Component {
   }
 
   handleSubmit = event => {
-    console.log(this.props)
     event.preventDefault()
-    // console.log(this.state)
     this.props.createPost(this.state)
   }
 
@@ -32,7 +30,6 @@ class CreatePost extends Component {
     const { auth } = this.props
     if (!auth.uid) return <Redirect to='/signin'/>
 
-    console.log(auth)
     return (
       <div className="createPost container section">
         <Paper className="paper">
