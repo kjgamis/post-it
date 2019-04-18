@@ -11,7 +11,7 @@ const SignedInLinks = (props) => {
     <span >
       <Button><Link to='/create'>New Post</Link></Button>
       <Button onClick={props.signOut}>Logout</Button>
-      <Fab size="small" color="secondary"><Link to='/'>KJG</Link></Fab>
+      <Fab size="small" color="secondary"><Link to='/'>{props.profile.initials}</Link></Fab>
     </span>
   )
 }

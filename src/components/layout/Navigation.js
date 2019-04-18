@@ -6,8 +6,8 @@ import { connect } from 'react-redux'
 import AppBar from '@material-ui/core/AppBar';
 
 const Navigation = (props) => {
-  const { auth } = props
-  const links = auth.uid ? <SignedInLinks/> : <SignedOutLinks/>
+  const { auth, profile } = props
+  const links = auth.uid ? <SignedInLinks profile={profile}/> : <SignedOutLinks/>
   return (
     <AppBar className="navbar">
       <div className="container">
@@ -22,7 +22,8 @@ const Navigation = (props) => {
 
 const stateToProps = (state) => {
   return {
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    profile: state.firebase.profile
   }
 }
 
