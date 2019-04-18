@@ -15,7 +15,6 @@ const postReducer = (state = initState, action) => {
             console.log(`Create Post Error`, action.err)
             return state
         default:
-            // console.log('post reducer')
             return state
     }
 }
