@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
@@ -26,9 +27,9 @@ const PostDetails = (props) => {
           </Typography>
           <CardActions>
             <CardActionArea>
-              <Typography variant="subtitle1" gutterBottom>Posted by {post.user}</Typography>
-              <Typography variant="subtitle1" gutterBottom color="textSecondary">
-                April 14
+              <Typography variant="subtitle1" color="textSecondary">Posted by {post.userFirstname} {post.userLastname}</Typography>
+              <Typography variant="subtitle1" color="textSecondary">
+               {moment(post.createdAt.toDate()).calendar()}
               </Typography>
             </CardActionArea>
           </CardActions>

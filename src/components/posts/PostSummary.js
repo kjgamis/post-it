@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography';
@@ -14,10 +15,10 @@ const PostSummary = ({post}) => {
           {post.content}
         </Typography>
         <Typography variant="subtitle1" gutterBottom>
-          {post.user}
+          {post.userFirstname} {post.userLastname}
         </Typography>
         <Typography variant="subtitle1" gutterBottom color="textSecondary">
-          March16/19
+          {moment(post.createdAt.toDate()).calendar()}
         </Typography>
       </CardContent>
     </div>
