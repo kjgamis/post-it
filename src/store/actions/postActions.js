@@ -4,9 +4,12 @@ export const createPost = (post) => {
         // make asyc call to database 
         const firestore = getFirestore()
         const profile = getState().firebase.profile
+        const userId = getState().firebase.auth.uid
         firestore.collection('posts').add({
             ...post,
-            user:  `${profile.firstname} ${profile.lastname}`,
+            userFirstname:  profile.firstname,
+            userLastname: profile.lastname,
+            userId: userId,
             createdAt: new Date()
         }).then(() => {
             dispatch({
