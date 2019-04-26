@@ -24,11 +24,12 @@ class CreatePost extends Component {
   handleSubmit = event => {
     event.preventDefault()
     this.props.createPost(this.state)
-    this.props.history.push('/');
+    // redirect user to dashboard after submission
+    this.props.history.push('/')
   }
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     const { auth } = this.props
     if (!auth.uid) return <Redirect to='/signin'/>
 
