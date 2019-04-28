@@ -6,8 +6,14 @@ admin.initializeApp(functions.config().firebase);
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
 exports.helloWorld = functions.https.onRequest((request, response) => {
- response.send("Hello from Firebase!", functions);
+ response.send("Hello from Firebase!");
 });
+
+const createNotification = notification => {
+    return admin.firestore().collection('notifications')
+    .add(notification)
+    .then(doc => console.log('notification added', doc))
+}
 
 exports.postCreated = functions.firestore
     .document('/posts/{postId}')
@@ -22,9 +28,12 @@ exports.postCreated = functions.firestore
         //     userId: "vH2tJWOThWbcF9ELeyIQTpbhiv22",
         //     userLastname: "Game"
         // }
+        
         const notification = {
-            content: 'Added a new project',
-            user:: `${post.userFirstname} ${post.userLastname}`,
+            content: 'Added a new post',
+            user: `${post.userFirstname} ${post.userLastname}`,
             time: admin.firestore.FieldValue.serverTimestamp()
         }
+
+        return createNotification(notification)
     })
