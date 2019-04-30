@@ -9,6 +9,7 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
  response.send("Hello from Firebase!");
 });
 
+// parameter is the payload defined in cloud function
 const createNotification = notification => {
     return admin.firestore().collection('notifications')
     .add(notification)
