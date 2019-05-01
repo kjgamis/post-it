@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 
 const Notifications = ({notifications}) => {
   return (
-    <div className="notifications">
+    <div className='notifications'>
       <Paper>
         <CardContent>
           <Typography variant="h4" component="h2">
@@ -17,8 +17,8 @@ const Notifications = ({notifications}) => {
             { notifications && notifications.map(notification => {
                 return(                
                     <li key={notification.id}>
-                      <Typography variant="h6" component="h5">{notification.user} {notification.content}</Typography>
-                      <span>{moment(notification.time.toDate()).fromNow()}</span>
+                      <Typography color='primary' variant="h6" component="h5">{notification.user} {notification.content}</Typography>
+                      <Typography color='textSecondary'>{moment(notification.time.toDate()).fromNow()}</Typography>
                     </li>
                 )
               })  }
