@@ -30,13 +30,15 @@ class Dashboard extends Component {
 const stateToProps = (state) => {
   return {
     posts: state.firestore.ordered.posts,
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    notifications: state.firestore.ordered.notification
   }
 }
 
 export default compose(
   connect(stateToProps),
   firestoreConnect([
-    { collection: 'posts' }
+    { collection: 'posts' },
+    { collection: 'notifications', limit: 3 }
   ])
 )(Dashboard)
