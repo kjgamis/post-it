@@ -1,9 +1,24 @@
 version: 2
 jobs:
+  loud-functions:
+    docker:
+      - image: circleci/node:10.8.0
+
+    working_directory: ~/post-it
+
+    steps:
+      - checkout
+      - run: 
+          name: Install Dependencies
+          command: cd functions && npm install
+      - run: 
+          name: Run Lint
+          command: cd functions && npm run lint
+  
   build:
     docker:
       - image: 'circleci/node:8'
-    working_directory: ~/repo
+    working_directory: ~/post-it
     steps:
       - checkout
       - restore_cache:
@@ -17,10 +32,12 @@ jobs:
           paths:
             - node_modules
           key: 'v1-dependencies-{{ checksum "package.json" }}'
-      - run: 'npm run test'
-      - run:
-          name: 'Build Project'
-          command: 'npm run build'
       - run: 
-          name: Deploy Master to Firebase 
+          name: Run Tests
+          command: npm run test
+      - run:
+          name: Build Project
+          command: npm run build
+      - run: 
+          name: Deploy to Firebase 
           command: './node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN'
