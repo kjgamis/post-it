@@ -31,7 +31,7 @@ exports.postCreated = functions.firestore
         // }
         
         const notification = {
-            content: 'Added a new post',
+            content: 'added a new post',
             user: `${post.userFirstname} ${post.userLastname}`,
             time: admin.firestore.FieldValue.serverTimestamp()
         }
@@ -46,7 +46,7 @@ exports.userJoined = functions.auth.user()
                 const newUser = doc.data()
 
                 const notification = {
-                    content: 'Joined the party',
+                    content: 'joined the party',
                     user: `${newUser.firstname} ${newUser.lastname}`,
                     time: admin.firestore.FieldValue.serverTimestamp() 
                 }
