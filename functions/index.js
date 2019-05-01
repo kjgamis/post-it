@@ -38,3 +38,19 @@ exports.postCreated = functions.firestore
 
         return createNotification(notification)
     })
+
+exports.userJoined = functions.auth.user()
+    .onCreate(user => {
+        return admin.firestore().collection('users').doc(user.uid).get()
+            .then(doc => {
+                const newUser = doc.data()
+
+                const notification = {
+                    content: 'Joined the party',
+                    user: `${newUser.firstname} ${newUser.lastname}`,
+                    time: admin.firestore.FieldValue.serverTimestamp() 
+                }
+
+                return createNotification(notification)
+            })
+    });
