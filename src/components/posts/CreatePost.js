@@ -16,6 +16,7 @@ class CreatePost extends Component {
   }
 
   handleChange = event => {
+    // event listener for every input change created
     this.setState({
       [event.target.id]: event.target.value
     })
@@ -23,6 +24,7 @@ class CreatePost extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
+    // pass the state the createPost (handleChange -> start -> createPost)
     this.props.createPost(this.state)
     // redirect user to dashboard after submission
     this.props.history.push('/')
